@@ -1,0 +1,56 @@
+      body {
+          font-family: 'Quicksand';/*font-size: 18px;*/
+      }
+
+
+
+      #criptoText{
+        text-align: justify;
+      }
+      .teal.lighten-1{
+        background-color:#018abe !important;
+      }
+      .icon-block {
+        padding: 0 15px;
+      }
+      .icon-block .material-icons {
+        font-size: inherit;
+      }
+      .light{
+        text-align: justify !important;
+      }
+      .imagen{
+        opacity: 0.8;
+      }
+      #textoini{
+        color: white !important;
+        text-align: center !important;
+      }
+      #resultadoFuerza{
+        overflow: auto;
+      }
+      #tablasec{
+         overflow: auto !important;
+      }
+      #boton{
+        background-color:#018abe !important;
+      }
+      #botonComparador{
+        background-color:#018abe !important;
+      }
+      .fila{
+       border:none;
+
+      }
+      .fila2{
+        border-color: black !important;
+      }
+      #linkKaratsuba{
+        align-self: center !important;
+      }
+      #karatsubaParallax{
+        color: black !important;
+      }
+      .informacion{
+/*        font-size: 14px !important;*/
+      }

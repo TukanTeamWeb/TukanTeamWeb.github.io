@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tukanes Team - Karatsuba</title>
+    
+       <link rel="icon" href="images/logo2.png">
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+      
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <!--Import animate.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="stylesheet" href="css/index.css">
+  
+      <link href="css/prism.css" rel="stylesheet" />
+      <link rel="stylesheet" href="vamonos/vamonos.css" />
+      <script type="text/javascript" src="js/vamonos-all.js"></script>
+  
+      <script src="js/prism.js"></script>
+  </head>
+<body>
+
+<!--BARRA DE NAVEGACIÓN-->  
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo" id="logo"><img src="images/logo2.png" width="50px" height="50px"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#inicio" class="reference">Inicio</a></li>
+          <li><a href="karatsuba.html" class="reference">Karatsuba animación</a></li>
+
+        </ul>
+      </div>
+    </nav>    
+  </div>
+
+
+  <ul class="sidenav" id="mobile-demo">
+        <li><a href="#inicio" class="reference">Inicio</a></li>
+        <li><a href="karatsuba.html" class="reference">Karatsuba animación</a></li>
+  </ul>
+
+<!-- BIENVENIDA -->
+  <div id="inicio" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-5" color="#fff">Bienvenido</h1>
+        <div class="row center">
+          <h5 id="textoini" class="header col s12 light">Nosotros somos el equipo Tukanes del grupo 3CM15, y esta es nuestra página donde abordaremos la multiplicación de enteros largos con el algoritmo clásico y el algoritmo de Karatsuba</h5>
+        </div>
+        <div class="row center">
+          <a  href="karatsuba.html" class="btn-large waves-effect waves-light teal lighten-1 " >ALGORITMO KARATSUBA</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img id="primera" src="images/respaldo.gif" alt="Unsplashed background img 1"></div>
+  </div>
+
+<!--PRIMER PARALLAX - PRESENTACIÓN -->
+
+<div  class="section white">
+  <div class="row container">
+    <h2 class="header">Multiplicación de Enteros Largos</h2>
+        <div class="col s12 m6" id="presentacion">
+          <div class="icon-block">
+            <h5  class="center"></h5>
+            <img src="images/calcu.png" width="100%">
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h5 class="center">Descripción</h5>
+
+            <p id="texto" class="light">
+              La complejidad de muchos problemas computacionales, desde calcular nuevos dígitos de π hasta encontrar grandes números primos, depende, en esencia, de la velocidad a que se multiplique. Su resultado establece una especie de límite matemático de velocidad que afecta a la rapidez con que se pueden resolver muchos otros tipos de problemas.
+            <br><br>
+            En física hay constantes importantes, como la velocidad de la luz, que permiten describir todo tipo de fenómenos. Si se quiere saber con qué rapidez pueden los ordenadores resolver ciertos problemas matemáticos, la multiplicación de números enteros se presentará como una especie de bloque básico con respecto al cual se podrán expresar las velocidades correspondientes.
+            
+          </p>
+          </div>
+        </div>
+  </div>  
+
+</div>
+
+<!--CUARTO PARALLAX - CRIPTOGRAFÍA -->
+
+<!--PRIMER PARALLAX - PRESENTACIÓN -->
+    <div  class="parallax-container">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <br><br>
+          <h1 class="header center teal-text text-lighten-5" id="karatsubaParallax">Fuerza Bruta</h1>
+
+        </div>
+      </div>
+      <div class="parallax"><img id="primera" src="images/fuerza.jpg" alt="Unsplashed background img 1"></div>
+    </div>
+<!--FIN PARALLAX-->
+
+    <div  class="section white">
+      <div class="row container">
+        <h2 class="header">Solución por Fuerza Bruta</h2><br>
+        <h5>Algoritmo Clásico de Multiplicación</h5>
+        <p class="ligth">
+
+          El algoritmo clásico de multiplicación requiere alrededor de n<sup>2</sup> pasos, donde n es el número de dígitos de los números que se estén multiplicando: los de tres dígitos requieren nueve multiplicaciones, mientras que los de 100 requieren 10.000. 
+        </p>
+        <pre><code class="language-javascript"><span>
+  multiply(a[1..p], b[1..q], base)
+    product = [1..p+q]
+    for b_i = 1 to q
+      carry = 0
+      for a_i = 1 to p 
+        product[a_i + b_i - 1] += carry + a[a_i] * b[b_i]
+        carry = product[a_i + b_i - 1] / base
+        product[a_i + b_i - 1] = product[a_i + b_i - 1] mod base
+      product[b_i + p] = carry
+    return product
+</span>
+</code></pre>
+        <h2 class="header">Calculadora por Fuerza Bruta</h2><br>
+        <p id="criptoText" class="grey-text text-darken-3 lighten-3"> Ingresa los números a multiplicar de tamaño n: </p>
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input  id="num1" type="number" class="validate" min="0">
+              <label for="num1">Número Menor</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="num2" type="number" class="validate" min="0">
+              <label for="num2">Número Mayor</label>
+            </div>
+          </div>          
+          <button id="boton" type="submit" class="waves-effect waves-light btn pink">Calcular</button>
+          <button id="limpiarFB" type="submit" class="waves-effect waves-light btn pink">Limpiar</button>
+          <h5 id="resultadoFuerza"></h5>
+        </div>
+
+        <div class="col s12" id="tablasec">
+          <div class="row">
+            
+            <table id="tabla" class="table centered col s12">
+              <thead id="cabecera">
+              </thead>
+        
+              <tbody id="tablebody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+<!--PRIMER PARALLAX - PRESENTACIÓN -->
+    <div  class="parallax-container">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <br><br>
+          <h1 class="header center teal-text text-lighten-5" id="karatsubaParallax">Karatsuba</h1>
+
+        </div>
+      </div>
+      <div class="parallax"><img id="primera" src="images/divide2.jpg" alt="Unsplashed background img 1"></div>
+    </div>
+<!--FIN PARALLAX-->
+
+<div  class="section white">
+  <div class="row container">
+    <h2 class="header">Solución por Algoritmo de Karatsuba</h2>
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h5 class="center">Algoritmo de Karatsuba</h5>
+
+            <p id="texto" class="light">El algoritmo de Karatsuba es un procedimiento para multiplicar números grandes eficientemente, que fue descubierto por Anatolii Alexeevitch Karatsuba en 1960 y publicado en 1962. El algoritmo consigue reducir la múltiplicación de dos números de n dígitos a como máximo n<sup>log<sub>2</sub>3</sup>, aproximadamente n<sup>1.585</sup> multiplicaciones de un dígito. Es, por lo tanto, más rápido que el algoritmo clásico, que requiere n<sup>2</sup> productos de un dígito. Si n = 210 = 1024, en particular, el cómputo final exacto es 310 = 59.049 y (210)2 = 1.048.576, respectivamente.<br><br>
+
+El algoritmo de Toom–Cook es una generalización más rápida del de Karatsuba. Para un n suficientemente grande, el algoritmo de Schönhage-Strassen es mejor que el algoritmo de Karatsuba.
+
+El algoritmo de Karatsuba es un claro ejemplo del paradigma divide y vencerás, concretamente del algoritmo de partición binaria. El nombre 'divide y vencerás' se usó por primera vez para éste método.</p>
+          </div>
+
+        </div>
+        <div class="col s12 m6" id="presentacion">
+          <div class="icon-block">
+            <h5  class="center">Foto</h5>
+            <img src="images/Karatsuba.jpg" width="100%">
+          </div>
+        </div>
+  </div>  
+  <div class="row container">
+    <h5>Pseudocódigo</h5>
+                      <pre><code class="language-javascript"><span>
+Karatsuba(x,y):
+  if x < 10 or y < 10
+   return xy
+  d = ⌊ max(length(p), length(q)) / 2 ⌋
+  xhigh, xlow = split x as a string at d
+  yhigh, ylow = split y as a string at d
+  
+  a = karatsuba(xhigh, yhigh)
+  b = karatsuba(xhigh + xlow, yhigh + ylow)
+  c = karatsuba(xlow, ylow)
+  
+  result = c*10^2d + (b-c-a)*10^d + a
+  
+  return result
+</span>
+</code></pre>
+  </div>
+  <div class="row container">
+    <h5>Animación del Algoritmo de Karatsuba en el siguiente link: </h5>
+    <a  href="karatsuba.html" id="linkKaratsuba" class="btn-large waves-effect waves-light teal lighten-1 ">ALGORITMO KARATSUBA</a>  <br> <br>  
+    <h5><b>Comparativa Fuerza Bruta V Karatsuba:</b></h5>    
+
+    <p id="criptoText" class="grey-text text-darken-3 lighten-3"> Ingresa los números a multiplicar de tamaño n: </p>
+    <div class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input  id="num1C" type="number" class="validate" min="0">
+            <label for="num1C">Número 1</label>
+          </div>
+              <div class="input-field col s6">
+              <input id="num2C" type="number" class="validate" min="0">
+              <label for="num2C">Número 2</label>
+            </div>
+        </div>          
+        <button id="botonComparador" type="submit" class="waves-effect waves-light btn pink">Calcular</button>
+        <button id="limpiarComparador" type="submit" class="waves-effect waves-light btn pink">Limpiar</button>
+        <br><br><br>
+        <div class="col s12" id="tablacomparativa">
+          <div class="row">
+            
+            <table id="tablacomp" class="responsive-table centered col s12">
+              <thead id="cabeceraC">
+              </thead>
+        
+              <tbody id="tablebodyC">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h5 id="resultadoFuerza"></h5>
+
+      </div>
+  </div>
+<!--VAMONOS-->
+ 
+<!--FIN VAMONOS-->
+
+
+
+</div>
+<<!--QUINTO PARALLAX - CONTACTO -->
+    <div  class="parallax-container">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <br><br>
+          <h1 class="header center teal-text text-lighten-5" color="#fff">Contacto</h1>
+
+        </div>
+      </div>
+      <div class="parallax"><img id="primera" src="images/contact.png" alt="Unsplashed background img 1"></div>
+    </div>
+
+
+    <div  class="section white">
+      <div class="row container">
+        <h2 class="header">Autores</h2>
+          <ul class="collection">
+            <li class="collection-item avatar">
+              <img src="images/alejandro.jfif" alt="" class="circle">
+              <span class="title">Galicia Castañeda Erick Alejandro</span>
+              <p class="informacion"><b>Rol: </b> Estructura y contenidos de la página<br>
+                <b>Info: </b> No Disponible<br>
+              </p>
+            </li>
+
+            <li class="collection-item avatar">
+              <img src="images/eduardo.jfif" alt="" class="circle">
+              <span class="title">Granados Olmos Eduardo</span>
+              <p class="informacion"><b>Rol: </b> Diseño y Animación por fuerza bruta<br><br>
+                <b>Gmail: </b>eduardoolmos1410@gmail.com<br>
+              </p>
+            </li>
+
+            <li class="collection-item avatar">
+              <img src="images/fernando.jpg" alt="" class="circle">
+              <span class="title">Hernández Bravo Luis Fernando</span>
+              <p class="informacion"><b>Rol: </b> Estructura, diseño y animación por Karatsuba<br><br>
+                <b>Gmail: </b>luisfrnandohernandezbravo@gmail.com <br><br>
+                <b>Linkedin: </b><br>
+                 <a href="https://www.linkedin.com/in/luis-fernando-hern%C3%A1ndez-bravo-32a2281a6/" id="github" target="_blank">clic aquí para ver mi perfil de Linkedin</a>
+              </p>
+            </li>
+
+            <li class="collection-item avatar">
+              <img src="images/diego.jfif" alt="" class="circle">
+              <span class="title">Hernández Penilla Diego Armando</span>
+              <p class="informacion"><b>Rol: </b> Diseño y Animación por fuerza bruta<br><br>
+                <b>Facebook: </b> Diego Penilla<br><br>
+                <b>Gmail: </b>brokepeny@gmail.com
+              </p>
+            </li>
+          </ul>
+      </div>
+    </div>
+<!--PIE DE PÁGINA-->
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+
+              <div class="col l6 s12">
+                <h5 class="white-text">Otros medios de contacto</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3"  target="_blank">Próximamente</a></li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2022 Tukan Team Web - Algoritmo de Karatsuba
+          </div>
+        </div>
+    </footer>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="jquery-3.6.0.min.js"></script> 
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+</body>
+
+</html>
